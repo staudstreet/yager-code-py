@@ -6,7 +6,8 @@ out_folder = Path("page/")
 pageid = input("Füge die ID dieser Seite ein: ") + ".html"
 opt1id = input("Füge die ID des linken Button ein: ") + ".html"
 opt2id = input("Füge die ID des rechten Button ein: ") + ".html"
-pageco = input("Füge den Inhalt des Textfeldes ein: ")
+pageco = input("Füge den Inhalt des oberen Textfeldes ein: ")
+pagecm = input("Füge den Inhalt des unteren Textfeldes ein: ")
 opt1co = input("Füge den Inhalt des linken Button ein: ")
 opt2co = input("Füge den Inhalt des rechten Button ein: ")
 
@@ -16,11 +17,12 @@ eini   = f.read()
 f.close()
 
 #replace text
-temp1  =  eini.replace("__CONTENT__", pageco)
-temp2  = temp1.replace("__BUTTON1__", opt1co)
-temp3  = temp2.replace("__BUTTON2__", opt2co)
-temp4  = temp3.replace("__BUTTON1LINK__", opt1id)
-output = temp4.replace("__BUTTON2LINK__", opt2id)
+temp1  =  eini.replace("__CONTENT1__", pageco)
+temp2  = temp1.replace("__CONTENT2__", pagecm)
+temp3  = temp2.replace("__BUTTON1__", opt1co)
+temp4  = temp3.replace("__BUTTON2__", opt2co)
+temp5  = temp4.replace("__BUTTON1LINK__", opt1id)
+output = temp5.replace("__BUTTON2LINK__", opt2id)
 
 #write output
 f      = open(out_folder / pageid, 'w')
